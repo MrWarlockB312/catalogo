@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productos>
+  <product>
+    <id>1</id>
+    <name>Audífonos Bluetooth</name>
+    <price>599</price>
+    <imageUrl>https://picsum.photos/seed/headphones/400/300</imageUrl>
+    <category>Audio</category>
+    <description>Audífonos inalámbricos con cancelación de ruido.</description>
+    <inStock>true</inStock>
+  </product>
+  <product>
+    <id>2</id>
+    <name>Teclado Mecánico</name>
+    <price>1250</price>
+    <imageUrl>https://picsum.photos/seed/keyboard/400/300</imageUrl>
+    <category>Accesorios</category>
+    <description>Teclado con switches azules.</description>
+    <inStock>false</inStock>
+  </product>
+</productos>
