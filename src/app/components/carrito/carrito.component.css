@@ -1,0 +1,12 @@
+.cart { border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; background: #f9fafb; margin-top: 30px;}
+.title { margin: 0 0 15px; font-size: 22px; color: #111827;}
+.empty { margin: 0; color: #6b7280; }
+.list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.item { display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px; background: #fff;}
+.line { font-size: 15px; font-weight: 500;}
+.total { margin-top: 15px; font-size: 18px; font-weight: 700; text-align: right; }
+.actions { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+.btn { border: 0; border-radius: 8px; padding: 10px 16px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+.btn:hover { opacity: 0.8; }
+.btn.danger { background: #ef4444; color: #fff; }
+.btn.purple { background: #7c3aed; color: #fff; }

@@ -1,10 +1,12 @@
 <header class="header">
   <h1>Catálogo de Productos</h1>
-  <p>Práctica 1: Lectura desde XML</p>
+  <p>Práctica 2: Sistema de Carrito Reactivo</p>
 </header>
 
 <section class="grid">
   @for (p of products(); track p.id) {
-    <app-product-card [product]="p"></app-product-card>
+    <app-product-card [product]="p" (add)="agregarAlCarrito($event)"></app-product-card>
   }
 </section>
+
+<app-carrito></app-carrito>

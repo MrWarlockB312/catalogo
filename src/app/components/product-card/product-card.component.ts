@@ -1,15 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core'; // Añade Output y EventEmitter
 import { CurrencyPipe } from '@angular/common';
 import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CurrencyPipe], // Necesario para formatear el precio con el signo de $
+  imports: [CurrencyPipe],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  // El signo de exclamación (!) le dice a TypeScript: "Confía en mí, este dato llegará"
   @Input({ required: true }) product!: Product; 
+  
+  // Este es el megáfono de la tarjeta
+  @Output() add = new EventEmitter<Product>();
+
+  onAdd() {
+    this.add.emit(this.product);
+  }
 }

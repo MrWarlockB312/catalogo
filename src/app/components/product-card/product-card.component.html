@@ -12,8 +12,8 @@
       @if (product.inStock) { En stock } @else { Agotado }
     </p>
     
-    <button class="btn" [disabled]="!product.inStock">
-      Agregar
+    <button class="btn" [disabled]="!product.inStock" (click)="onAdd()">
+      Agregar al carrito
     </button>
   </div>
 </article>
