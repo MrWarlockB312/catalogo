@@ -1,26 +1,30 @@
-import { Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { Component, OnInit, inject } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
-import { CarritoService } from '../../services/carrito.service'; // Inyectamos el carrito
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { CarritoComponent } from '../carrito/carrito.component'; // Importamos el componente
 import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-catalogo',
   standalone: true,
-  imports: [ProductCardComponent, CarritoComponent], // Añadimos CarritoComponent aquí
+  imports: [ProductCardComponent],
   templateUrl: './catalogo.component.html',
   styleUrls: ['./catalogo.component.css']
 })
-export class CatalogoComponent {
-  private productsService = inject(ProductsService);
-  private carritoService = inject(CarritoService);
+export class CatalogoComponent implements OnInit {
+  private productosService = inject(ProductsService);
+  
+  // Arreglo tradicional en lugar de Signal
+  productos: Product[] = []; 
 
-  products = toSignal(this.productsService.getAll(), { initialValue: [] });
-
-  // Esta función atrapa el producto de la tarjeta y lo manda al cerebro
-  agregarAlCarrito(producto: Product) {
-    this.carritoService.agregar(producto);
+  ngOnInit(): void {
+    this.productosService.getProductos().subscribe({
+      next: (data) => {
+        this.productos = data;
+        console.log('Productos recibidos:', data);
+      },
+      error: (err) => {
+        console.error('Error al obtener productos:', err);
+      }
+    });
   }
 }

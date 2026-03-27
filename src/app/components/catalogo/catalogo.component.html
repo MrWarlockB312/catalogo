@@ -4,8 +4,7 @@
 </header>
 
 <section class="grid">
-  @for (p of products(); track p.id) {
-    <app-product-card [product]="p" (add)="agregarAlCarrito($event)"></app-product-card>
+@for (p of productos; track p.id) {    <app-product-card [product]="p" (add)="agregarAlCarrito($event)"></app-product-card>
   }
 </section>
 
